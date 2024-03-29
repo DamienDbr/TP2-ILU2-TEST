@@ -4,8 +4,6 @@ import villagegaulois.Etal; //Mon ajout
 
 public class ControlLibererEtal {
 	private ControlTrouverEtalVendeur controlTrouverEtalVendeur;
-	
-	private String[][] donneesVente = new String[0][0];//ma modif
 
 	public ControlLibererEtal(
 			ControlTrouverEtalVendeur controlTrouverEtalVendeur) {
@@ -26,16 +24,23 @@ public class ControlLibererEtal {
 	//Ma modif 
 	public boolean isVendeur(String nomVendeur) {
 		Etal etalVendeur = controlTrouverEtalVendeur.trouverEtalVendeur(nomVendeur);
-		if(etalVendeur!=null)
+		if(etalVendeur!=null) {
 			return true;
-		else
+		}
+		else {
 			return false;
+		}
 	}
 	//fin modif
 	public String[] libererEtal(String nomVendeur) {
 		//TODO a completer
-		String[] donneesEtal = null;
+		
+		Etal etalVendeur = controlTrouverEtalVendeur.trouverEtalVendeur(nomVendeur);
+		
+		String[] donneesEtal = new String[5];
+		donneesEtal = etalVendeur.etatEtal();
 		return donneesEtal;
+		
 	}
 
 }
